@@ -192,7 +192,7 @@
 #vb-b8n .vb-b8n-oc{display:flex;flex-direction:column}
 #vb-b8n .vb-b8n-oc .vb-b8n-in{flex:1;display:flex;flex-direction:column}
 #vb-b8n .vb-b8n-oc .vb-b8n-pl{margin-top:auto}
-@media(max-width:420px){#vb-b8n .vb-b8n-book{padding:8px 12px;font-size:13px}}
+@media(max-width:420px){#vb-b8n .vb-b8n-book{padding:8px 12px;font-size:13px}#vb-b8n .vb-b8n-lg.has{height:30px}}
 @media(min-width:900px){#vb-b8n .vb-b8n-cta ul{grid-template-columns:1fr 1fr;column-gap:32px}#vb-b8n .vb-b8n-soc{padding:48px}}
 </style>
 <div class="vb-b8n-app"><div class="vb-b8n-top"><div class="vb-b8n-lg" id="vb-b8n-lg">Лого</div><a class="vb-b8n-book" href="https://metri.rent/?utm_medium=travel_guide" target="_blank" rel="noopener">Забронировать квартиру</a></div><div class="vb-b8n-cover" id="vb-b8n-cover">Место для обложки</div>
@@ -247,7 +247,7 @@
 'use strict';
 /* ===== НАСТРОЙКИ ===== */
 var IMG='https://ivan257257mrpi-cloud.github.io/spb-guide/img/'; /* папка с картинками гида */
-var LOGO='',COVER=IMG+'cover-2400.jpg',COVER_SM=IMG+'cover-1200.jpg'; /* логотип и обложка */
+var LOGO=IMG+'logo.svg',COVER=IMG+'cover-2400.jpg',COVER_SM=IMG+'cover-1200.jpg'; /* логотип и обложка */
 /* Места: id — номер (по нему подключаются фото), n — название, d — описание, tip — «Советуем», a — адрес,
    c — [широта, долгота], o — id организации в Яндекс Картах, u — своя ссылка на Яндекс Карты,
    ph — файл фото из папки img/places (если есть).
@@ -270,7 +270,7 @@ var HINT='<div class="vb-b8n-hn"><svg viewBox="0 0 312 70" aria-hidden="true"><p
 var root=document.getElementById('vb-b8n');
 function $(i){return root.querySelector('#vb-b8n-'+i)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-if(LOGO){$('lg').innerHTML='<img src="'+esc(LOGO)+'" alt="">';$('lg').className='vb-b8n-lg has'}
+if(LOGO){$('lg').innerHTML='<img src="'+esc(LOGO)+'" alt="Метры в центре">';$('lg').className='vb-b8n-lg has'}
 if(COVER){var cv=$('cover');cv.textContent='';cv.setAttribute('role','img');cv.setAttribute('aria-label','Семья в лодке на канале, впереди Исаакиевский собор');
  cv.style.backgroundImage='url('+COVER+')';
  cv.style.backgroundImage='-webkit-image-set(url('+COVER_SM+') 1x, url('+COVER+') 2x)';
