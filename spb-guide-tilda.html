@@ -11,7 +11,7 @@
 #vb-b8n .vb-b8n-top{position:sticky;top:0;z-index:25;display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;background:#e7e3daee;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 #vb-b8n .vb-b8n-lg{flex:none;height:36px;min-width:36px;padding:0 10px;border:1.5px dashed #261c1555;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#261c15aa;overflow:hidden}
 #vb-b8n .vb-b8n-lg img{height:100%;display:block}
-#vb-b8n .vb-b8n-lg.has{border:0;padding:0}
+#vb-b8n .vb-b8n-lg.has{border:0;padding:0;border-radius:0;overflow:visible}
 #vb-b8n .vb-b8n-tt{font-family:var(--t-headline-font,'Jun'),'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:19px;color:var(--ac);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #vb-b8n .vb-b8n-cover{height:auto;aspect-ratio:4/3;margin:0 16px;border-radius:22px;background:var(--beige) center/cover;display:flex;align-items:center;justify-content:center;font-size:13px;color:#261c15aa;border:1.5px dashed #261c1540}
 #vb-b8n .vb-b8n-cover.has{border:0}
@@ -179,9 +179,23 @@
 /* карточки квартир: цена всегда внизу, даже если описание длиннее */
 #vb-b8n .vb-b8n-oc{display:flex;flex-direction:column}
 #vb-b8n .vb-b8n-oc .vb-b8n-in{flex:1;display:flex;flex-direction:column}
-#vb-b8n .vb-b8n-oc .vb-b8n-pl{margin-top:auto}
+#vb-b8n .vb-b8n-oc .vb-b8n-pl{margin-top:auto;align-self:flex-start;gap:14px;padding:6px 12px 6px 14px}
+#vb-b8n .vb-b8n-oc .vb-b8n-in b{margin-bottom:8px}
+#vb-b8n .vb-b8n-oc .vb-b8n-in span{margin-bottom:16px}
+#vb-b8n .vb-b8n-oc .vb-b8n-pl span{margin:0;opacity:1;font-size:15px;line-height:1.3}
+#vb-b8n .vb-b8n-oc .vb-b8n-pl i{display:flex;align-items:center;line-height:1}
 @media(max-width:420px){#vb-b8n .vb-b8n-book{padding:8px 12px;font-size:13px}#vb-b8n .vb-b8n-lg.has{height:30px}}
-@media(min-width:900px){#vb-b8n .vb-b8n-cta ul{grid-template-columns:1fr 1fr;column-gap:32px}#vb-b8n .vb-b8n-soc{padding:48px}}
+/* красный блок: фото и списки «зигзагом» */
+#vb-b8n .vb-b8n-zz{display:grid;gap:18px;margin:26px 0}
+#vb-b8n .vb-b8n-zz img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px}
+#vb-b8n .vb-b8n-zz ul{margin:0}
+#vb-b8n .vb-b8n-cta .vb-b8n-tag{margin:6px 0 16px}
+@media(min-width:900px){
+#vb-b8n .vb-b8n-zz{grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;margin:36px 0}
+#vb-b8n .vb-b8n-zz-r{grid-template-columns:1fr 1.1fr}
+#vb-b8n .vb-b8n-zz-r img{order:2}
+#vb-b8n .vb-b8n-zz ul{gap:14px;font-size:17px}
+#vb-b8n .vb-b8n-soc{padding:48px}}
 </style>
 <div class="vb-b8n-app"><div class="vb-b8n-top"><div class="vb-b8n-lg" id="vb-b8n-lg">Лого</div><a class="vb-b8n-book" href="https://metri.rent/?utm_medium=travel_guide" target="_blank" rel="noopener">Забронировать квартиру</a></div><div class="vb-b8n-cover" id="vb-b8n-cover">Место для обложки</div>
 <div class="vb-b8n-w">
@@ -207,14 +221,22 @@
   <div class="vb-b8n-cta vb-b8n-rv">
     <h3>«Метры в центре» — больше, чем просто квартиры для проживания</h3>
     <p>Это возможность открыть для себя настоящий Петербург, почувствовать атмосферу города и стать его частью.</p>
-    <ul>
-      <li>Более 250 квартир в историческом центре Санкт-Петербурга</li>
-      <li>Бесконтактное заселение — быстро, удобно и без лишних формальностей</li>
-      <li>Клиентский сервис 24/7 — заботимся о вашем комфорте в любое время</li>
-      <li>От 1 до 15 минут пешком до метро, музеев и культурных пространств</li>
-      <li>Всё для комфортного проживания — от бытовой техники до приятных мелочей</li>
-      <li>Ваш проводник по Петербургу — любимые места местных, необычные маршруты и город без туристических клише</li>
-    </ul>
+    <div class="vb-b8n-zz">
+      <img src="https://ivan257257mrpi-cloud.github.io/spb-guide/img/about-1.jpg" alt="Гостиная с круглым столиком и розовым креслом" loading="lazy">
+      <ul>
+        <li>Более 250 квартир в историческом центре Санкт-Петербурга</li>
+        <li>Бесконтактное заселение — быстро, удобно и без лишних формальностей</li>
+        <li>Клиентский сервис 24/7 — заботимся о вашем комфорте в любое время</li>
+        <li>Всё для комфортного проживания — от бытовой техники до приятных мелочей</li>
+      </ul>
+    </div>
+    <div class="vb-b8n-zz vb-b8n-zz-r">
+      <img src="https://ivan257257mrpi-cloud.github.io/spb-guide/img/about-2.jpg" alt="Гостиная с кирпичной стеной и светлым диваном" loading="lazy">
+      <ul>
+        <li>От 1 до 15 минут пешком до метро, музеев и культурных пространств</li>
+        <li>Ваш проводник по Петербургу — любимые места местных, необычные маршруты и город без туристических клише</li>
+      </ul>
+    </div>
     <p class="vb-b8n-tag">Живите в центре. Чувствуйте Петербург.</p>
     <a href="https://metri.rent/?utm_medium=travel_guide" target="_blank" rel="noopener">Забронировать квартиру</a>
   </div>
